@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <meta name="description" content="Test">
+        <meta name="author" content="Carlos Garcia Marquez">
+        <style type="text/css" media="screen">
+            body {
+                background-color: #EEE;
+            }
+            table {
+                text-align: center;
+                line-height: 0;
+                border-collapse:collapse;
+            }
+            td, th {
+                padding: 8px;
+            }
+            img {
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+        {% for colormap in colormaps %}
+        <tr>
+            <td>
+                {{ colormap.colormap_name }}
+            </td>
+            {% for function in functions %}
+            <td>
+                <img src="{{ function.function_name }}-{{ colormap.colormap_name }}.png" />
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
